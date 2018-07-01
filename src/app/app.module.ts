@@ -8,6 +8,9 @@ import { RouterModule, Routes } from '@angular/router';
 import { BioPageComponent } from './pages/bio-page/bio-page.component';
 import { CarolsPageComponent } from './pages/carols-page/carols-page.component';
 import { MusicPageComponent } from './pages/music-page/music-page.component';
+import { LoginDialogComponent } from './login/login-dialog.component';
+import { FormsModule } from '@angular/forms';
+import { LoginService } from './login/login.service';
 
 const appRoutes: Routes = [
   { path: 'bio', component: BioPageComponent },
@@ -21,7 +24,8 @@ const appRoutes: Routes = [
     AppComponent,
     BioPageComponent,
     CarolsPageComponent,
-    MusicPageComponent
+    MusicPageComponent,
+    LoginDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -30,9 +34,11 @@ const appRoutes: Routes = [
     RouterModule.forRoot(
       appRoutes,
       { enableTracing: true } // <-- debugging purposes only
-    )
+    ),
+    FormsModule
   ],
-  providers: [],
-  bootstrap: [AppComponent]
+  providers: [LoginService],
+  bootstrap: [AppComponent],
+  entryComponents: [LoginDialogComponent]
 })
 export class AppModule { }
