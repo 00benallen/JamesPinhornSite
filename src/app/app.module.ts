@@ -11,6 +11,7 @@ import { MusicPageComponent } from './pages/music-page/music-page.component';
 import { LoginDialogComponent } from './login/login-dialog.component';
 import { FormsModule } from '@angular/forms';
 import { LoginService } from './login/login.service';
+import { AboutMeComponent } from './pages/bio-page/about-me/about-me.component';
 
 const appRoutes: Routes = [
   { path: 'bio', component: BioPageComponent },
@@ -25,7 +26,8 @@ const appRoutes: Routes = [
     BioPageComponent,
     CarolsPageComponent,
     MusicPageComponent,
-    LoginDialogComponent
+    LoginDialogComponent,
+    AboutMeComponent
   ],
   imports: [
     BrowserModule,

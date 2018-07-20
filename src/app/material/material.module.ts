@@ -9,7 +9,8 @@ import {
   MatToolbarModule, 
   MatDialogModule,
   MatFormFieldModule,
-  MatInputModule} from '@angular/material'
+  MatInputModule,
+  MatCardModule} from '@angular/material'
 
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
@@ -23,7 +24,8 @@ const modules = [
   MatToolbarModule,
   MatDialogModule,
   MatFormFieldModule,
-  MatInputModule
+  MatInputModule,
+  MatCardModule
 ]
 
 @NgModule({
