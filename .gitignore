@@ -39,5 +39,4 @@ testem.log
 Thumbs.db
 
 # Big Assets
-/assets/original-song-collections/*
-/assets/traditional-carols/*
+/assets/*
