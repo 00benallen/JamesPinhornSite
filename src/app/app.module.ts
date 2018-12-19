@@ -12,6 +12,8 @@ import { LoginDialogComponent } from './login/login-dialog.component';
 import { FormsModule } from '@angular/forms';
 import { LoginService } from './login/login.service';
 import { AboutMeComponent } from './pages/bio-page/about-me/about-me.component';
+import { MusicService } from './pages/music-page/music-service';
+import { HttpClientModule } from '@angular/common/http';
 
 const appRoutes: Routes = [
   { path: 'bio', component: BioPageComponent },
@@ -31,6 +33,7 @@ const appRoutes: Routes = [
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     BrowserAnimationsModule,
     MaterialModule,
     RouterModule.forRoot(
@@ -39,7 +42,7 @@ const appRoutes: Routes = [
     ),
     FormsModule
   ],
-  providers: [LoginService],
+  providers: [LoginService, MusicService],
   bootstrap: [AppComponent],
   entryComponents: [LoginDialogComponent]
 })

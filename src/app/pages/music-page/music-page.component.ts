@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { MusicService, FileList } from './music-service';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-music-page',
@@ -7,7 +9,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MusicPageComponent implements OnInit {
 
-  constructor() { }
+  public musicFiles: Observable<String[]>
+
+  constructor(private musicService: MusicService) {
+
+    this.musicFiles = musicService.getMusicFileNames('original-song-collections/original-songs.json')
+
+  }
 
   ngOnInit() {
   }
