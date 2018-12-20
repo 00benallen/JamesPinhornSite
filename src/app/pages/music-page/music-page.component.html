@@ -1,3 +1,29 @@
-<div *ngFor="let file of musicFiles | async">
-  <audio src={{file}} controls></audio>
+<h1>My Music</h1>
+
+<div>
+  <div *ngFor="let collection of musicCollections ; last as isLast" [class.last-collection]="isLast">
+    <mat-card>
+      <mat-card-header>
+        <mat-card-title class="big-title">{{collection.name}}</mat-card-title>
+        <mat-card-subtitle>{{collection.note}}</mat-card-subtitle>
+      </mat-card-header>
+      <mat-divider></mat-divider>
+      <mat-card-content [style.overflow]="'auto'" [style.height.vh]="55">
+        <div *ngFor="let file of collection.files" class="file-container">
+          <h4>{{file.displayName}}</h4>
+          <p>{{file.note}}</p>
+          <audio src={{file.fileName}} controls></audio>
+        </div>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>
+
+<div *ngIf="moreToLoad" class="load-area-container">
+  <button mat-button (click)="loadMore()">Load More</button>
+  <button mat-button (click)="loadMore(true)">Load All</button>
+</div>
+
+<div *ngIf="!moreToLoad" class="load-area-container">
+  <p>That's all of them! Thanks for your interest :)</p>
 </div>
