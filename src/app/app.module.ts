@@ -8,9 +8,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { BioPageComponent } from './pages/bio-page/bio-page.component';
 import { CarolsPageComponent } from './pages/carols-page/carols-page.component';
 import { MusicPageComponent } from './pages/music-page/music-page.component';
-import { LoginDialogComponent } from './login/login-dialog.component';
 import { FormsModule } from '@angular/forms';
-import { LoginService } from './login/login.service';
 import { AboutMeComponent } from './pages/bio-page/about-me/about-me.component';
 import { HttpClientModule } from '@angular/common/http';
 import { MusicViewerModule } from './music/music-viewer.module';
@@ -28,7 +26,6 @@ const appRoutes: Routes = [
     BioPageComponent,
     CarolsPageComponent,
     MusicPageComponent,
-    LoginDialogComponent,
     AboutMeComponent
   ],
   imports: [
@@ -43,8 +40,8 @@ const appRoutes: Routes = [
     FormsModule,
     MusicViewerModule
   ],
-  providers: [LoginService],
+  providers: [],
   bootstrap: [AppComponent],
-  entryComponents: [LoginDialogComponent]
+  entryComponents: []
 })
 export class AppModule { }

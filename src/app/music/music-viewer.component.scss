@@ -36,9 +36,11 @@ mat-card {
 }
 
 .load-area-container {
-    width: 10%;
-    margin: auto;
-    display: flex;
+    margin: 10px auto;
+    padding: 10px 0px 10px 0px;
+    position: relative;
+    height: auto;
+    text-align: center;
 }
 
 .load-area-container * {
