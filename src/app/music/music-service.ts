@@ -8,6 +8,7 @@ export interface File {
     fileName: string
     displayName: string
     note: string
+    lyricsFile: string
 }
 
 export interface Collection {
@@ -73,6 +74,10 @@ export class MusicService {
         let newFileArray: File[] = []
         for(let file of files) {
             file.fileName = rootFolder + file.fileName + '.' + fileExtension
+
+            if(file.lyricsFile !== "") {
+                file.lyricsFile = rootFolder + file.lyricsFile
+            }
             newFileArray.push(file)
         }
 

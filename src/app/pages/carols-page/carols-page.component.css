@@ -1,0 +1,27 @@
+h1 {
+    font-family: Roboto,"Helvetica Neue",sans-serif;
+    margin-left: 10px;
+}
+
+#carol-interview-container {
+    font-family: Roboto,"Helvetica Neue",sans-serif;
+    margin-left: 10px;
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+
+#paper-container {
+    font-family: Roboto,"Helvetica Neue",sans-serif;
+    margin-left: 10px;
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+
+a {
+    padding-left: 10px;
+}
+
+audio {
+    width: 100%;
+    max-width: 600px;
+}

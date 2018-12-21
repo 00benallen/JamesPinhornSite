@@ -12,8 +12,8 @@ import { LoginDialogComponent } from './login/login-dialog.component';
 import { FormsModule } from '@angular/forms';
 import { LoginService } from './login/login.service';
 import { AboutMeComponent } from './pages/bio-page/about-me/about-me.component';
-import { MusicService } from './pages/music-page/music-service';
 import { HttpClientModule } from '@angular/common/http';
+import { MusicViewerModule } from './music/music-viewer.module';
 
 const appRoutes: Routes = [
   { path: 'bio', component: BioPageComponent },
@@ -40,9 +40,10 @@ const appRoutes: Routes = [
       appRoutes,
       //{ enableTracing: true } // <-- debugging purposes only
     ),
-    FormsModule
+    FormsModule,
+    MusicViewerModule
   ],
-  providers: [LoginService, MusicService],
+  providers: [LoginService],
   bootstrap: [AppComponent],
   entryComponents: [LoginDialogComponent]
 })
