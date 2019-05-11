@@ -1,15 +1,17 @@
-<h1 class="text">My Bio</h1>
+<h2 class="text">My Bio</h2>
 <mat-divider></mat-divider>
 
 <mat-tab-group dynamicHeight>
   <mat-tab label="About Me">
-    <div class="overlayed-image-container">
-      <img src="assets/images/1590468_360.jpeg" class="image-360">
-      <div class="overlay-text-container-360">
-        <div class="overlay-text">Me conducting my school choir</div>  
+    <div class="flex-container">
+      <div class="overlayed-image-container">
+        <img src="assets/images/1590468_360.jpeg" class="image-360">
+        <div class="overlay-text-container-360">
+          <div class="overlay-text">Me conducting my school choir</div>  
+        </div>
       </div>
+      <app-about-me></app-about-me>
     </div>
-    <app-about-me></app-about-me>
   </mat-tab>
   <mat-tab label="Contact Me">
     <mat-card>
@@ -26,11 +28,5 @@
       <p>|</p>
       <a href="https://www.youtube.com/user/acimusica1/videos" class="link">My School's Channel</a>
     </mat-card>
-    <div class="overlayed-image-container">
-      <img class="image-360" src="assets/images/_7565234_360.jpeg">
-      <div class="overlay-text-container-360">
-        <div class="overlay-text">Me singing at my parent's 50th</div>
-      </div>
-    </div>
   </mat-tab>
 </mat-tab-group>

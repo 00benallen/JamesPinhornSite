@@ -12,12 +12,14 @@ import { FormsModule } from '@angular/forms';
 import { AboutMeComponent } from './pages/bio-page/about-me/about-me.component';
 import { HttpClientModule } from '@angular/common/http';
 import { MusicViewerModule } from './music/music-viewer.module';
+import { HomePageComponent } from './pages/home-page/home-page.component';
 
 const appRoutes: Routes = [
+  { path: 'home', component: HomePageComponent },
   { path: 'bio', component: BioPageComponent },
   { path: 'carols', component: CarolsPageComponent},
   { path: 'music', component: MusicPageComponent},
-  { path: '', pathMatch: 'full',redirectTo: 'bio'}
+  { path: '**', pathMatch: 'full', redirectTo: 'home'}
 ];
 
 @NgModule({
@@ -26,7 +28,8 @@ const appRoutes: Routes = [
     BioPageComponent,
     CarolsPageComponent,
     MusicPageComponent,
-    AboutMeComponent
+    AboutMeComponent,
+    HomePageComponent
   ],
   imports: [
     BrowserModule,
