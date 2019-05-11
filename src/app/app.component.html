@@ -1,19 +1,17 @@
-<div class="responsive-sidenav-container">
-  <mat-sidenav-container>
-    <mat-sidenav mode="side" opened color="primary" class="mat-elevation-z5">
-      <div id="nav-container">
-        <a mat-button routerLink="/bio" class="nav-button">Bio</a>
-        <a mat-button routerLink="/carols" class="nav-button">Carols</a>
-        <a mat-button routerLink="/music" class="nav-button">My Music</a>
-      </div>
-      <mat-divider></mat-divider>
-    </mat-sidenav>
-    <mat-sidenav-content>
-      <mat-divider></mat-divider>
-      <router-outlet></router-outlet>
-      <div id="bottom-of-content">
-        <p class="text">© JamesPinhorn 2018</p>
-      </div>
-    </mat-sidenav-content>
-  </mat-sidenav-container>
-</div>
+<mat-sidenav-container>
+  <mat-sidenav mode="side" opened color="primary" class="mat-elevation-z5">
+    <div id="nav-container">
+      <a mat-button routerLink="/bio" class="nav-button">Bio</a>
+      <a mat-button routerLink="/carols" class="nav-button">Carols</a>
+      <a mat-button routerLink="/music" class="nav-button">My Music</a>
+    </div>
+    <mat-divider></mat-divider>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <mat-divider></mat-divider>
+    <router-outlet></router-outlet>
+    <div id="bottom-of-content">
+      <p class="text">© JamesPinhorn 2018</p>
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>
