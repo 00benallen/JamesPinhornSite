@@ -30,11 +30,11 @@
   </div>
 </div>
 
-<div *ngIf="moreToLoad && shouldLoadMore" class="load-area-container">
-  <button mat-button (click)="loadMore()">Load More</button>
-  <button mat-button (click)="loadMore(true)">Load All</button>
+<div *ngIf="moreToLoad && loadMore" class="load-area-container">
+  <button mat-button (click)="onLoadMore()">Load More</button>
+  <button mat-button (click)="onLoadMore(true)">Load All</button>
 </div>
 
-<div *ngIf="!moreToLoad && shouldLoadMore" class="load-area-container">
+<div *ngIf="!moreToLoad && loadMore" class="load-area-container">
   <p>That's all of them! Thanks for your interest :)</p>
 </div>

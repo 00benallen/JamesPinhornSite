@@ -1,6 +1,6 @@
 import { Component, OnInit} from '@angular/core';
 
-const songDataFile = 'original-song-collections/original-songs.json'
+const songDataFile = 'original-song-collections/original-songs.json';
 
 @Component({
   selector: 'app-music-page',
