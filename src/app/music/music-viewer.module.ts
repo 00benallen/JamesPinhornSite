@@ -5,6 +5,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { MusicService } from './music-service';
 import { MaterialModule } from '../material/material.module';
 import { MusicViewerComponent } from './music-viewer.component';
+import { JsonAssetLoaderModule } from '../json-asset-loader/json-asset-loader.module';
 
 @NgModule({
   imports: [
@@ -12,6 +13,7 @@ import { MusicViewerComponent } from './music-viewer.component';
     BrowserModule,
     HttpClientModule,
     MaterialModule,
+    JsonAssetLoaderModule
   ],
   providers: [MusicService],
   declarations: [MusicViewerComponent],

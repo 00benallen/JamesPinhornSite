@@ -18,7 +18,7 @@
         <mat-card-subtitle>{{collection.note}}</mat-card-subtitle>
       </mat-card-header>
       <mat-divider></mat-divider>
-      <mat-card-content [style.overflow]="'auto'" [style.height.vh]="55">
+      <mat-card-content>
         <div *ngFor="let file of collection.files" class="file-container">
           <h4>{{file.displayName}}</h4>
           <p>{{file.note}}</p>
@@ -31,7 +31,7 @@
 </div>
 
 <div *ngIf="moreToLoad && loadMore" class="load-area-container">
-  <button mat-button (click)="onLoadMore()">Load More</button>
+  <button mat-button (click)="onLoadMore()">Load Next Volume</button>
   <button mat-button (click)="onLoadMore(true)">Load All</button>
 </div>
 

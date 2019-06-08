@@ -1,11 +1,9 @@
 mat-card-title.big-title {
-    font-family: Roboto,"Helvetica Neue",sans-serif;
     margin-left: 10px;
     font-size: 1.4em;
 }
 
 mat-card-subtitle {
-    font-family: Roboto,"Helvetica Neue",sans-serif;
     margin-left: 10px;
     font-size: 1.0em;
 }
@@ -26,10 +24,6 @@ h4 {
     margin-top: 5px;
 }
 
-mat-card {
-    margin: 10px;
-}
-
 .load-area-container {
     margin: 10px auto;
     padding: 10px 0px 10px 0px;
@@ -39,7 +33,6 @@ mat-card {
 }
 
 .load-area-container * {
-    font-family: Roboto,"Helvetica Neue",sans-serif;
     padding: 0px;
 }
 
@@ -52,6 +45,5 @@ a {
     color: aqua;
     display: inline-block;
     padding-left: 10px;
-    font-family: Roboto,"Helvetica Neue",sans-serif;
     font-size: 1.2em;
 }

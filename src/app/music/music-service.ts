@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpResponse } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
-import { map, share } from 'rxjs/operators';
+import { map } from 'rxjs/operators';
+import { JsonAssetLoaderService } from '../json-asset-loader/json-asset-loader.service';
 
 export interface File {
     fileName: string;
@@ -26,14 +26,14 @@ export interface FileList {
 @Injectable()
 export class MusicService {
 
-    constructor(private httpClient: HttpClient) {}
+    constructor(private assetLoader: JsonAssetLoaderService) {}
 
     /*
     JSON File contains list of music file names, its in assets, this version loads all
     */
     getMusicFileData(jsonFile: String, upToCollectionIndex?: number): Observable<Collection[]> {
 
-        return this.httpClient.get<FileList>('assets/' + jsonFile).pipe(
+        return this.assetLoader.getFileData(jsonFile).pipe(
             map((fileList: FileList) => {
 
                 const allCollections = fileList.collections;

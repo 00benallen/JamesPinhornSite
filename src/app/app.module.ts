@@ -13,6 +13,8 @@ import { AboutMeComponent } from './pages/bio-page/about-me/about-me.component';
 import { HttpClientModule } from '@angular/common/http';
 import { MusicViewerModule } from './music/music-viewer.module';
 import { HomePageComponent } from './pages/home-page/home-page.component';
+import { UpdatesModule } from './updates/updates.module';
+import { OverlayImageComponent } from './overlay-image/overlay-image.component';
 
 const appRoutes: Routes = [
   { path: 'home', component: HomePageComponent },
@@ -29,7 +31,8 @@ const appRoutes: Routes = [
     CarolsPageComponent,
     MusicPageComponent,
     AboutMeComponent,
-    HomePageComponent
+    HomePageComponent,
+    OverlayImageComponent
   ],
   imports: [
     BrowserModule,
@@ -41,7 +44,8 @@ const appRoutes: Routes = [
       // { enableTracing: true } // <-- debugging purposes only
     ),
     FormsModule,
-    MusicViewerModule
+    MusicViewerModule,
+    UpdatesModule
   ],
   providers: [],
   bootstrap: [AppComponent],

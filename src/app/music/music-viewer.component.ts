@@ -8,9 +8,9 @@ import { MusicService, Collection } from './music-service';
 })
 export class MusicViewerComponent implements OnInit, AfterViewChecked {
 
-  @Input('musicFile') public musicFile: string;
-  @Input('autoScroll') public autoScroll: boolean;
-  @Input('loadMore') public loadMore: boolean;
+  @Input() public musicFile: string;
+  @Input() public autoScroll: boolean;
+  @Input() public loadMore: boolean;
 
   public musicCollections: Collection[];
   public moreToLoad: boolean;
