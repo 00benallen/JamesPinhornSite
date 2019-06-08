@@ -61,9 +61,7 @@ export class MusicViewerComponent implements OnInit, AfterViewChecked {
       }
     }
 
-    if (!this.moreToLoad) {
-      this.scrollToBottom = false;
-    }
+    this.scrollToBottom = false;
   }
 
   public onLoadMore(all?: boolean) {
