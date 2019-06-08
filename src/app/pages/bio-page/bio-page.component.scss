@@ -79,15 +79,3 @@ mat-card {
 .overlayed-image-container:hover .overlay-text-container-360 {
     opacity: 0.7;
 }
-
-.overlay-text {
-    color: white;
-    font-size: 20px;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    -webkit-transform: translate(-50%, -50%);
-    -ms-transform: translate(-50%, -50%);
-    transform: translate(-50%, -50%);
-    text-align: center;
-  }
