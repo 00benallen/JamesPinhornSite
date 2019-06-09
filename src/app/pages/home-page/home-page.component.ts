@@ -9,7 +9,7 @@ import { Observable } from 'rxjs';
 })
 export class HomePageComponent implements OnInit {
 
-  private updates: Observable<Update[]>;
+  updates: Observable<Update[]> | undefined;
 
   constructor(private updatesService: UpdatesService) { }
 

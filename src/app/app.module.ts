@@ -15,6 +15,7 @@ import { MusicViewerModule } from './music/music-viewer.module';
 import { HomePageComponent } from './pages/home-page/home-page.component';
 import { UpdatesModule } from './updates/updates.module';
 import { OverlayImageComponent } from './overlay-image/overlay-image.component';
+import { LocationStrategy, HashLocationStrategy } from '@angular/common';
 
 const appRoutes: Routes = [
   { path: 'home', component: HomePageComponent },
@@ -47,7 +48,7 @@ const appRoutes: Routes = [
     MusicViewerModule,
     UpdatesModule
   ],
-  providers: [],
+  providers: [{provide: LocationStrategy, useClass: HashLocationStrategy}],
   bootstrap: [AppComponent],
   entryComponents: []
 })

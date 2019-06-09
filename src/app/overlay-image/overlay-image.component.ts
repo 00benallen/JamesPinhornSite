@@ -5,14 +5,10 @@ import { Component, OnInit, Input } from '@angular/core';
   templateUrl: './overlay-image.component.html',
   styleUrls: ['./overlay-image.component.scss']
 })
-export class OverlayImageComponent implements OnInit {
+export class OverlayImageComponent {
 
-  @Input() imageSrc: string;
-  @Input() imageText: string;
-
-  constructor() { }
-
-  ngOnInit() {
-  }
+  @Input() imageSrc: string | undefined;
+  @Input() imageText: string | undefined;
+  @Input() size: 'small' | 'medium' | 'large' = 'small';
 
 }

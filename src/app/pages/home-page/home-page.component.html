@@ -2,15 +2,16 @@
   <h2>Welcome to my website!</h2>
   <app-overlay-image 
   imageSrc="assets/images/banf-banner.jpeg" 
-  imageText="Conducting my students in Banff Alberta"></app-overlay-image>
+  imageText="Conducting my students in Banff Alberta"
+  size="medium"></app-overlay-image>
   <mat-divider></mat-divider>
 
   <mat-card>
     <nav>
       <h3>Where things are (you can also use the buttons on the side)</h3>
-      <li><a href="/bio">Bio</a> for information about me and my career</li>
-      <li><a href="/carols">Carols</a> for recordings and sheet music for five traditional Newfoundland Christmas Carols</li>
-      <li><a href="/music">My Music</a> for recordings of my original songs</li>
+      <li><a routerLink="/bio">Bio</a> for information about me and my career</li>
+      <li><a routerLink="/carols">Carols</a> for recordings and sheet music for five traditional Newfoundland Christmas Carols</li>
+      <li><a routerLink="/music">My Music</a> for recordings of my original songs</li>
     </nav>
   </mat-card>
 
@@ -20,7 +21,7 @@
       <mat-divider></mat-divider>
       <h4>{{update.title}}</h4>
       <p>{{update.description}}</p>
-      <a href="{{update.link}}">{{update.linkDescription}}</a>
+      <a target="_blank" href="{{update.link}}">{{update.linkDescription}}</a>
     </div>
   </mat-card>
 </div>

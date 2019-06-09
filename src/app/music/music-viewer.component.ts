@@ -8,21 +8,17 @@ import { MusicService, Collection } from './music-service';
 })
 export class MusicViewerComponent implements OnInit, AfterViewChecked {
 
-  @Input() public musicFile: string;
-  @Input() public autoScroll: boolean;
-  @Input() public loadMore: boolean;
+  @Input() public musicFile: string | undefined;
+  @Input() public autoScroll = false;
+  @Input() public loadMore = false;
 
-  public musicCollections: Collection[];
-  public moreToLoad: boolean;
-  public scrollToBottom: boolean;
+  public musicCollections: Collection[] | undefined = undefined;
+  public moreToLoad = false;
+  public scrollToBottom = false;
 
-  private loaded: number;
+  private loaded = 0;
 
-  constructor(private musicService: MusicService) {
-
-    this.moreToLoad = false;
-
-  }
+  constructor(private musicService: MusicService) { }
 
   ngOnInit() {
 
@@ -33,18 +29,18 @@ export class MusicViewerComponent implements OnInit, AfterViewChecked {
 
     this.scrollToBottom = false;
 
-    const musicCollectionsObs = this.musicService.getMusicFileData(this.musicFile, 0);
+    if (this.musicFile) {
+      const musicCollectionsObs = this.musicService.getMusicFileData(this.musicFile, 0);
 
-    // We loaded one collection, assume there's more to load
+      // We loaded one collection, assume there's more to load
+      musicCollectionsObs.subscribe((collections: Collection[]) => {
 
-    musicCollectionsObs.subscribe((collections: Collection[]) => {
+        this.musicCollections = collections;
 
-      this.musicCollections = collections;
-
-      this.loaded = 0;
-      this.moreToLoad = true;
-    });
-
+        this.loaded = 0;
+        this.moreToLoad = true;
+      });
+    }
   }
 
   // This triggers a lot, basically when elements in view are changed (what we need to accomplish this)
@@ -66,7 +62,7 @@ export class MusicViewerComponent implements OnInit, AfterViewChecked {
 
   public onLoadMore(all?: boolean) {
 
-    if (all) {
+    if (all && this.musicFile) {
 
       console.log('Calling music service');
       const musicCollectionsObs = this.musicService.getMusicFileData(this.musicFile);
@@ -81,7 +77,7 @@ export class MusicViewerComponent implements OnInit, AfterViewChecked {
         this.loaded = collections.length - 1;
       });
 
-    } else {
+    } else if (this.musicFile) {
 
       console.log('Calling music service');
       const musicCollectionsObs = this.musicService.getMusicFileData(this.musicFile, this.loaded + 1);

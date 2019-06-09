@@ -33,7 +33,7 @@ export class MusicService {
     */
     getMusicFileData(jsonFile: String, upToCollectionIndex?: number): Observable<Collection[]> {
 
-        return this.assetLoader.getFileData(jsonFile).pipe(
+        return this.assetLoader.getFileData<FileList>(jsonFile).pipe(
             map((fileList: FileList) => {
 
                 const allCollections = fileList.collections;
