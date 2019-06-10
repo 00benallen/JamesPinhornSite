@@ -1,38 +1,29 @@
-<mat-card>
-    <p class="text">
-        Here you will find the five Christmas Carols my grandfather used to sing with the men in Norman's Cove, 
-        Trinity Bay, Newfoundland many years ago.  To get the notes as accurate as possible, 
-        I consulted my Uncle Cle Newhook on the words in certain verses, as well as my Mom, 
-        Florence Pinhorn who heard the carols sung in her kitchen many times by her father.  
-        I also made use of two separate recordings of my Grandfather, Ernest Newhook singing 
-        these carols, and information from my Great Uncle Hubert Newhook about the history of the 
-        carols. 
-    </p>
-</mat-card>
+<p class="text">
+    Here you will find the five Christmas Carols my grandfather used to sing with the men in Norman's Cove, 
+    Trinity Bay, Newfoundland many years ago.  To get the notes as accurate as possible, 
+    I consulted my Uncle Cle Newhook on the words in certain verses, as well as my Mom, 
+    Florence Pinhorn who heard the carols sung in her kitchen many times by her father.  
+    I also made use of two separate recordings of my Grandfather, Ernest Newhook singing 
+    these carols, and information from my Great Uncle Hubert Newhook about the history of the 
+    carols. 
+</p>
 
 <div>
   <div *ngFor="let collection of musicCollections ; last as isLast" [class.last-collection]="isLast">
-    <mat-card>
-      <mat-card-header>
-        <mat-card-title class="big-title">{{collection.name}}</mat-card-title>
-        <mat-card-subtitle>{{collection.note}}</mat-card-subtitle>
-      </mat-card-header>
-      <mat-divider></mat-divider>
-      <mat-card-content>
-        <div *ngFor="let file of collection.files" class="file-container">
-          <h4>{{file.displayName}}</h4>
-          <p>{{file.note}}</p>
-          <audio src={{file.fileName}} controls></audio>
-          <a *ngIf="notEmpty(file.lyricsFile)" href="{{file.lyricsFile}}" target="_blank">Lyrics File</a>
-        </div>
-      </mat-card-content>
-    </mat-card>
+    <h3>{{collection.name}}</h3>
+    <h4>{{collection.note}}</h4>
+    <div *ngFor="let file of collection.files" class="file-container">
+      <h4>{{file.displayName}}</h4>
+      <p>{{file.note}}</p>
+      <audio src={{file.fileName}} controls></audio>
+      <a *ngIf="notEmpty(file.lyricsFile)" href="{{file.lyricsFile}}" target="_blank">Lyrics File</a>
+    </div>
   </div>
 </div>
 
 <div *ngIf="moreToLoad && loadMore" class="load-area-container">
-  <button mat-button (click)="onLoadMore()">Load Next Volume</button>
-  <button mat-button (click)="onLoadMore(true)">Load All</button>
+  <button (click)="onLoadMore()">Load Next Volume</button>
+  <button (click)="onLoadMore(true)">Load All</button>
 </div>
 
 <div *ngIf="!moreToLoad && loadMore" class="load-area-container">

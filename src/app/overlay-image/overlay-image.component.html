@@ -1,16 +1,6 @@
-<div 
-class="overlay-image-container"
-[class.overlay-image-container-360]="size === 'small'"
-[class.overlay-image-container-720]="size === 'medium'">
-    <img 
-    class="image"
-    [class.image-360]="size === 'small'"
-    [class.image-720]="size === 'medium'"
-    src="{{imageSrc}}">
-    <div
-    class="overlay-text-container"
-    [class.overlay-text-container-360]="size === 'small'"
-    [class.overlay-text-container-720]="size === 'medium'">
+<div class="overlay-image-container">
+    <img class="image" src="{{imageSrc}}">
+    <div class="overlay-text-container">
         <div class="overlay-text">{{imageText}}</div>
     </div>
 </div>

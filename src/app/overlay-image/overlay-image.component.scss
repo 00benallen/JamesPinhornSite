@@ -1,59 +1,15 @@
 .image {
     display: block;
     width: 100%;
-    height: auto;
+    height: 80vh;
     border: 1px solid #d0d3d8;
     background-color: #272726;
-
-    @media only screen and (max-width: 500px) {
-        max-width: 180px;
-    }
-
-    &-360 {
-        @media only screen and (min-width: 500px) {
-            max-width: 360px;
-        }    
-    } 
-
-    &-720 {
-        @media only screen and (min-width: 500px) {
-            max-width: 720px;
-        }
-    }
-
-    &-1440 {
-        @media only screen and (min-width: 500px) {
-            max-width: 1440px;
-        }
-    }
 }
 
 .overlay-image-container {
     position: relative;
     width: 100%;
-    margin: 10px;
-
-    @media only screen and (max-width: 500px) {
-        max-width: 180px;
-    }
-
-    &-360 {
-        @media only screen and (min-width: 500px) {
-            max-width: 360px;
-        }  
-    }
-
-    &-720 {
-        @media only screen and (min-width: 500px) {
-            max-width: 720px;
-        }  
-    }
-
-    &-1440 {
-        @media only screen and (min-width: 500px) {
-            max-width: 1440px;
-        }
-    }
+    margin: 30px 0 30px 0;
 }
 
 .overlay-text-container {
@@ -67,18 +23,6 @@
     opacity: 0;
     transition: .5s ease;
     background-color: #424242;
-
-    &-360 {
-        max-width: 360px;
-    }
-
-    &-720 {
-        max-width: 720px;
-    }
-
-    &-1440 {
-        max-width: 1440px;
-    }
 }
 
 .overlay-image-container:hover .overlay-text-container {

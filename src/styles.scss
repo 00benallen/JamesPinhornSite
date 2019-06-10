@@ -1,12 +1,15 @@
 /* You can add global styles to this file, and also import other style files */
 
-@import "~@angular/material/prebuilt-themes/pink-bluegrey.css";
+html {
+    height: 100%
+}
 
-html {height: 100%}
-body { 
-    margin: 0; 
+body {
     height: 100%;
     font-family: Roboto,"Helvetica Neue",sans-serif;
+    color: white;
+    background-color: #666666;
+    margin: 10px 40px 0 40px;
 }
 
 a {
@@ -26,14 +29,6 @@ a {
     -ms-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
     text-align: center;
-}
-
-h2 {
-    margin-left: 10px;
-}
-
-mat-card {
-    margin: 10px;
 }
 
 

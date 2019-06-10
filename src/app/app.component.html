@@ -1,24 +1,19 @@
-<h1 class="text site-title">James Pinhorn</h1>
+<div class="top-row-container">
+  <img src="assets/icons/corner-icon-3-rect.svg" class="corner-icon">
+  <div class="title-container">
+    <h1 class="site-title">James Pinhorn</h1>
+    <span class="site-subtitle">Singer / Songwriter / Composer</span>
+  </div>
+  <div class="nav-container">
+    <button routerLink="/home">Home</button>
+    <button routerLink="/bio">Bio</button>
+    <button routerLink="/carols">Carols</button>
+    <button routerLink="/music">My Songs</button>
+    <button routerLink="/contact">Contact</button>
+  </div>
+</div>
 
-<mat-sidenav-container>
-  <mat-sidenav 
-  mode="side" 
-  opened
-  color="primary" 
-  class="mat-elevation-z5">
-    <div id="nav-container">
-      <a mat-button routerLink="/home" class="nav-button">Home</a>
-      <a mat-button routerLink="/bio" class="nav-button">Bio</a>
-      <a mat-button routerLink="/carols" class="nav-button">Carols</a>
-      <a mat-button routerLink="/music" class="nav-button">My Music</a>
-    </div>
-    <mat-divider></mat-divider>
-  </mat-sidenav>
-  <mat-sidenav-content>
-    <mat-divider></mat-divider>
-    <router-outlet></router-outlet>
-    <div>
-      <p class="text">© JamesPinhorn 2018</p>
-    </div>
-  </mat-sidenav-content>
-</mat-sidenav-container>
+<router-outlet></router-outlet>
+<div>
+  <p>© JamesPinhorn 2018</p>
+</div>
