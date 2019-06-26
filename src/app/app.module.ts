@@ -16,6 +16,7 @@ import { UpdatesModule } from './updates/updates.module';
 import { OverlayImageComponent } from './overlay-image/overlay-image.component';
 import { LocationStrategy, HashLocationStrategy } from '@angular/common';
 import { CardComponent } from './card/card.component';
+import { CardModule } from './card/card.module';
 
 const appRoutes: Routes = [
   { path: 'home', component: HomePageComponent },
@@ -33,8 +34,7 @@ const appRoutes: Routes = [
     MusicPageComponent,
     AboutMeComponent,
     HomePageComponent,
-    OverlayImageComponent,
-    CardComponent
+    OverlayImageComponent
   ],
   imports: [
     BrowserModule,
@@ -46,7 +46,8 @@ const appRoutes: Routes = [
     ),
     FormsModule,
     MusicViewerModule,
-    UpdatesModule
+    UpdatesModule,
+    CardModule,
   ],
   providers: [{provide: LocationStrategy, useClass: HashLocationStrategy}],
   bootstrap: [AppComponent],

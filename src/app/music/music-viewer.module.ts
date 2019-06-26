@@ -5,13 +5,15 @@ import { HttpClientModule } from '@angular/common/http';
 import { MusicService } from './music-service';
 import { MusicViewerComponent } from './music-viewer.component';
 import { JsonAssetLoaderModule } from '../json-asset-loader/json-asset-loader.module';
+import { CardModule } from '../card/card.module';
 
 @NgModule({
   imports: [
     CommonModule,
     BrowserModule,
     HttpClientModule,
-    JsonAssetLoaderModule
+    JsonAssetLoaderModule,
+    CardModule,
   ],
   providers: [MusicService],
   declarations: [MusicViewerComponent],
