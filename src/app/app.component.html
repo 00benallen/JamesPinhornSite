@@ -1,20 +1,40 @@
-<div class="top-row-container">
-  <img src="assets/icons/corner-icon-3-rect.svg" class="corner-icon">
-  <div class="title-container">
-    <h1 class="site-title">James Pinhorn</h1>
-    <span class="site-subtitle">Singer / Songwriter / Composer</span>
+<div class="page-body">
+
+  <div class="top-row-container">
+    <img src="assets/icons/corner-icon-3-rect.svg" class="corner-icon">
+    <div class="title-container">
+      <h1 class="site-title">James Pinhorn</h1>
+      <span class="site-subtitle">Singer / Songwriter / Composer</span>
+    </div>
+    <div class="nav-container">
+      <ng-container *ngFor="let route of routes">
+        <button [attr.selected]="isSelected(route.url)" [routerLink]="route.url">{{route.label}}</button>
+      </ng-container>
+      
+      <!-- <button [attr.selected]="isSelected('/home')" routerLink="/home">Home</button>
+      <button [attr.selected]="isSelected('/bio')" routerLink="/bio">Bio</button>
+      <button [attr.selected]="isSelected('/carols')" routerLink="/carols">Carols</button>
+      <button [attr.selected]="isSelected('/music')" routerLink="/music">My Songs</button> -->
+    </div>
   </div>
-  <div class="nav-container">
-    <button routerLink="/home">Home</button>
-    <button routerLink="/bio">Bio</button>
-    <button routerLink="/carols">Carols</button>
-    <button routerLink="/music">My Songs</button>
-    <button routerLink="/contact">Contact</button>
+
+  <router-outlet #outlet="outlet"></router-outlet>
+
+  <app-card>
+    <div class="contact-flex-container">
+      <img src="assets/icons/facebook-icon.svg" class="icon">
+      <a href="https://www.facebook.com/newfieboy23/" class="link">My Facebook Page</a>
+  
+      <img src="assets/icons/youtube-icon.svg" class="icon">
+      <a href="https://www.youtube.com/channel/UCnb18UJU4jlD-UJvSRMTf4A/videos" class="link">My Youtube Channel</a>
+      <p>|</p>
+      <a href="https://www.youtube.com/user/acimusica1/videos" class="link">My School's Channel</a>
+    </div>
+  </app-card>
+  
+  
+  <div>
+    <p>© JamesPinhorn 2018</p>
   </div>
 </div>
 
-<router-outlet #outlet="outlet"></router-outlet>
-
-<div>
-  <p>© JamesPinhorn 2018</p>
-</div>

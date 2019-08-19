@@ -15,7 +15,6 @@ import { HomePageComponent } from './pages/home-page/home-page.component';
 import { UpdatesModule } from './updates/updates.module';
 import { OverlayImageComponent } from './overlay-image/overlay-image.component';
 import { LocationStrategy, HashLocationStrategy } from '@angular/common';
-import { CardComponent } from './card/card.component';
 import { CardModule } from './card/card.module';
 
 const appRoutes: Routes = [
