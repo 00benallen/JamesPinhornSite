@@ -1,9 +1,12 @@
+@import "../styles.scss";
+
 .top-row-container {
     display: flex;
     align-items: center;
     justify-content: flex-start;
-    background-color: #666666;
+    background-color: $color_background;
     padding: 5px;
+    flex-wrap: wrap;
 }
 
 .title-container {
@@ -12,7 +15,9 @@
 }
 
 .page-body {
-    margin: 10px 40px 0 40px;
+    @media only screen and (min-width: $br-md) {
+        margin: 10px 40px 0 40px;
+    }
 }
 
 .corner-icon {
@@ -31,29 +36,32 @@
 
 .nav-container {
     display: flex;
-    justify-content: space-around;
-    flex: 0 1 80%;
-    margin: 0 1rem 0 1rem;
+    justify-content: space-between;
+    flex: 0 1 60%;
 
-    button {
-        font-family: Roboto,"Helvetica Neue",sans-serif;
-        color: white;
-        background-color: #666666;
-        width: 20%;
-        font-size: 1.5rem;
-        margin: 0 0.5rem 0 0.5rem;
-        border-radius: 10px;
+    @media only screen and (max-width: $br-md) {
+        margin: auto;
+        margin-top: 8px;
     }
 
-    button:hover {
-        background-color: white;
-        color: #666666;
+    button {
+        width: 20%;
+        min-height: 3rem;
+        font-size: 1.5rem;
+        margin: 0 0.3rem 0 0.3rem;
+
+        @media only screen and (max-width: $br-sm) {
+            font-size: 1rem;
+            width: 4rem;
+        }
+        
     }
 
     button[selected="true"] {
         background-color: white;
-        color: #666666;
+        color: $color_base;
     }
+
 }
 
 .icon {

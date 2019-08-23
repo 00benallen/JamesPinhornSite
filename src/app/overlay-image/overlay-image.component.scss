@@ -1,14 +1,24 @@
+@import '../../styles.scss';
+
 .image {
     display: block;
-    width: 100%;
+    margin: auto;
     max-height: 600px;
     border: 1px solid #d0d3d8;
     background-color: #272726;
+
+    @media only screen and (max-width: $br-md) {
+        max-height: 300px;
+        max-width: 95vw;
+    }
+
+    @media only screen and (max-width: $br-sm) {
+        max-height: 200px;
+    }    
 }
 
 .overlay-image-container {
     position: relative;
-    width: 100%;
     margin: 30px 0 30px 0;
 }
 
@@ -19,10 +29,9 @@
     left: 0;
     right: 0;
     height: 100%;
-    width: 100%;
     opacity: 0;
-    transition: .5s ease;
-    background-color: #424242;
+    transition: 0.75s ease;
+    background-color: #3a3a3a;
 }
 
 .overlay-image-container:hover .overlay-text-container {

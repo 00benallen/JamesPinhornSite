@@ -1,13 +1,16 @@
 <div>
   <div *ngFor="let collection of musicCollections ; last as isLast" [class.last-collection]="isLast">
     <app-card>
-      <h3>{{collection.name}}</h3>
-      <h4>{{collection.note}}</h4>
+      <div class="v-div"></div>
+      <h2>{{collection.name}}</h2>
+      <h4 *ngIf="collection.note">{{collection.note}}</h4>
+      <hr>
       <div *ngFor="let file of collection.files" class="file-container">
         <h4>{{file.displayName}}</h4>
         <p>{{file.note}}</p>
         <audio src={{file.fileName}} controls></audio>
         <a *ngIf="notEmpty(file.lyricsFile)" href="{{file.lyricsFile}}" target="_blank">Lyrics File</a>
+        <hr>
       </div>
     </app-card>
   </div>

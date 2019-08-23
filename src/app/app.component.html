@@ -1,5 +1,4 @@
 <div class="page-body">
-
   <div class="top-row-container">
     <img src="assets/icons/corner-icon-3-rect.svg" class="corner-icon">
     <div class="title-container">
@@ -10,13 +9,10 @@
       <ng-container *ngFor="let route of routes">
         <button [attr.selected]="isSelected(route.url)" [routerLink]="route.url">{{route.label}}</button>
       </ng-container>
-      
-      <!-- <button [attr.selected]="isSelected('/home')" routerLink="/home">Home</button>
-      <button [attr.selected]="isSelected('/bio')" routerLink="/bio">Bio</button>
-      <button [attr.selected]="isSelected('/carols')" routerLink="/carols">Carols</button>
-      <button [attr.selected]="isSelected('/music')" routerLink="/music">My Songs</button> -->
     </div>
   </div>
+
+  <hr>
 
   <router-outlet #outlet="outlet"></router-outlet>
 
@@ -31,7 +27,8 @@
       <a href="https://www.youtube.com/user/acimusica1/videos" class="link">My School's Channel</a>
     </div>
   </app-card>
-  
+
+  <hr>
   
   <div>
     <p>© JamesPinhorn 2018</p>

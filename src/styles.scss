@@ -1,5 +1,16 @@
 /* You can add global styles to this file, and also import other style files */
 
+$color_background: rgb(75, 75, 75);
+$color_base: rgb(90, 90, 90);
+$color_base_highlight: rgb(129, 134, 141);
+$color_accent: rgb(237, 203, 90);
+$color_text: white;
+$color_link: rgb(170, 215, 247);
+$color_link_highlight: rgba(244, 241, 187, 1);
+
+$br_md: 1024px;
+$br-sm: 768px;
+
 html {
     height: 100%
 }
@@ -8,11 +19,52 @@ body {
     height: 100%;
     font-family: Roboto,"Helvetica Neue",sans-serif;
     color: white;
-    background-color: #666666;
+    background-color: $color_background;
 }
 
 a {
-    color: aqua;
+    color: $color_link;
+}
+
+a:hover {
+    color: $color_link_highlight;
+}
+
+button {
+    font-family: Roboto,"Helvetica Neue",sans-serif;
+    color: white;
+    background-color: $color_base;
+    border-radius: 10px;
+}
+
+button:hover {
+    background-color: white;
+    color: $color_base;
+}
+
+button:active {
+    transform: translateY(4px);
+}
+
+hr {
+    border: 1px solid $color_accent;
+    border-radius: 2px;
+}
+
+.v-div {
+    border-left: 3px solid $color_accent; 
+    border-right: 3px solid $color_accent; 
+    margin-right: 5px;
+    height: 1.5rem;
+    position: relative;
+    bottom: -0.25rem;
+    width: 0;
+    display: inline-block;
+}
+
+.v-div + * {
+    display: inline-block;
+    margin-bottom: 0.5rem;
 }
 
 .overlay-text {
