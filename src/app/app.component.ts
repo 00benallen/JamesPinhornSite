@@ -9,7 +9,7 @@ import { Router, NavigationEnd, Event } from '@angular/router';
 export class AppComponent {
 
   private currentRoute = '/';
-  private routes = [
+  routes = [
     { url: '/home', label: 'Home'},
     { url: '/bio', label: 'Bio'},
     { url: '/carols', label: 'Carols'},
