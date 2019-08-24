@@ -3,7 +3,6 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MaterialModule } from './material/material.module';
 import { RouterModule, Routes } from '@angular/router';
 import { BioPageComponent } from './pages/bio-page/bio-page.component';
 import { CarolsPageComponent } from './pages/carols-page/carols-page.component';
@@ -16,6 +15,7 @@ import { HomePageComponent } from './pages/home-page/home-page.component';
 import { UpdatesModule } from './updates/updates.module';
 import { OverlayImageComponent } from './overlay-image/overlay-image.component';
 import { LocationStrategy, HashLocationStrategy } from '@angular/common';
+import { CardModule } from './card/card.module';
 
 const appRoutes: Routes = [
   { path: 'home', component: HomePageComponent },
@@ -39,14 +39,14 @@ const appRoutes: Routes = [
     BrowserModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    MaterialModule,
     RouterModule.forRoot(
       appRoutes,
       // { enableTracing: true } // <-- debugging purposes only
     ),
     FormsModule,
     MusicViewerModule,
-    UpdatesModule
+    UpdatesModule,
+    CardModule,
   ],
   providers: [{provide: LocationStrategy, useClass: HashLocationStrategy}],
   bootstrap: [AppComponent],

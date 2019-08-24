@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router, NavigationEnd, Event } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -7,7 +8,23 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
 
-  constructor() {
+  private currentRoute = '/';
+  routes = [
+    { url: '/home', label: 'Home'},
+    { url: '/bio', label: 'Bio'},
+    { url: '/carols', label: 'Carols'},
+    { url: '/music', label: 'My Songs'},
+  ];
 
+  constructor(router: Router) {
+    router.events.subscribe((event: Event) => {
+      if (event instanceof NavigationEnd ) {
+        this.currentRoute = event.url;
+      }
+    });
+  }
+
+  isSelected(button: '/home' | '/bio' | '/carols' | '/music'): boolean {
+    return button === this.currentRoute;
   }
 }

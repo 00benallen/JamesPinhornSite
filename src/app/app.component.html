@@ -1,24 +1,37 @@
-<h1 class="text site-title">James Pinhorn</h1>
+<div class="page-body">
+  <div class="top-row-container">
+    <img src="assets/icons/corner-icon-3-rect.svg" class="corner-icon">
+    <div class="title-container">
+      <h1 class="site-title">James Pinhorn</h1>
+      <span class="site-subtitle">Singer / Songwriter / Composer</span>
+    </div>
+    <div class="nav-container">
+      <ng-container *ngFor="let route of routes">
+        <button [attr.selected]="isSelected(route.url)" [routerLink]="route.url">{{route.label}}</button>
+      </ng-container>
+    </div>
+  </div>
 
-<mat-sidenav-container>
-  <mat-sidenav 
-  mode="side" 
-  opened
-  color="primary" 
-  class="mat-elevation-z5">
-    <div id="nav-container">
-      <a mat-button routerLink="/home" class="nav-button">Home</a>
-      <a mat-button routerLink="/bio" class="nav-button">Bio</a>
-      <a mat-button routerLink="/carols" class="nav-button">Carols</a>
-      <a mat-button routerLink="/music" class="nav-button">My Music</a>
+  <hr>
+
+  <router-outlet #outlet="outlet"></router-outlet>
+
+  <app-card>
+    <div class="contact-flex-container">
+      <img src="assets/icons/facebook-icon.svg" class="icon">
+      <a href="https://www.facebook.com/newfieboy23/" class="link">My Facebook Page</a>
+  
+      <img src="assets/icons/youtube-icon.svg" class="icon">
+      <a href="https://www.youtube.com/channel/UCnb18UJU4jlD-UJvSRMTf4A/videos" class="link">My Youtube Channel</a>
+      <p>|</p>
+      <a href="https://www.youtube.com/user/acimusica1/videos" class="link">My School's Channel</a>
     </div>
-    <mat-divider></mat-divider>
-  </mat-sidenav>
-  <mat-sidenav-content>
-    <mat-divider></mat-divider>
-    <router-outlet></router-outlet>
-    <div>
-      <p class="text">© JamesPinhorn 2018</p>
-    </div>
-  </mat-sidenav-content>
-</mat-sidenav-container>
+  </app-card>
+
+  <hr>
+  
+  <div>
+    <p>© JamesPinhorn 2018</p>
+  </div>
+</div>
+

@@ -1,13 +1,85 @@
-.nav-button {
+@import "../styles.scss";
+
+.top-row-container {
     display: flex;
-    flex-direction: column;
-    margin: 5px;
+    align-items: center;
+    justify-content: flex-start;
+    background-color: $color_background;
+    padding: 5px;
+    flex-wrap: wrap;
+}
+
+.title-container {
+    margin-right: auto;
+    flex: 0 0 auto;
+}
+
+.page-body {
+    @media only screen and (min-width: $br-md) {
+        margin: 10px 40px 0 40px;
+    }
+}
+
+.corner-icon {
+    width: 38px;
+    height: 38px;
+    display: inline-block;
 }
 
 .site-title {
-    margin: 8px;
+    margin: 1px;
 }
 
-p.text {
-    margin-left: 5px;
+.site-subtitle {
+    margin-left: 10px;
+}
+
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    flex: 0 1 60%;
+
+    @media only screen and (max-width: $br-md) {
+        margin: auto;
+        margin-top: 8px;
+    }
+
+    button {
+        width: 20%;
+        min-height: 3rem;
+        font-size: 1.5rem;
+        margin: 0 0.3rem 0 0.3rem;
+        transition: all 0.5s ease;
+
+        @media only screen and (max-width: $br-sm) {
+            font-size: 1rem;
+            width: 4rem;
+        }
+        
+    }
+
+    button[selected="true"] {
+        background-color: white;
+        color: $color_base;
+    }
+
+}
+
+.icon {
+    min-width: 30px;
+    width: 50px;
+    display: inline-block
+}
+
+p {
+    display: inline-block;
+}
+
+a {
+    padding: 10px;
+}
+
+.contact-flex-container {
+    display: flex;
+    align-items: center;
 }
