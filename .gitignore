@@ -40,3 +40,6 @@ Thumbs.db
 
 # Big Assets
 src/assets/**
+
+# Environment files
+.env
