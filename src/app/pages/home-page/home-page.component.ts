@@ -2,14 +2,14 @@ import { Component, OnInit } from '@angular/core';
 import { ContentfulService, ContentTypeIds } from 'src/app/contentful.service';
 import { Entry, Asset, ContentfulCollection, EntryCollection } from 'contentful';
 
-interface HomePageContent {
-  bannerImage: Entry<Asset>;
+export interface HomePageContent {
+  bannerImage: any;
   bannerImageOverlayText: string;
   navigationSectionTitle: string;
   updatesSectionTitle: string;
 }
 
-interface Update {
+export interface Update {
   title: string;
   body: string;
   link: string;

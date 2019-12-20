@@ -2,8 +2,8 @@ import { Component} from '@angular/core';
 import { Entry, Asset } from 'contentful';
 import { ContentfulService, ContentTypeIds } from 'src/app/contentful.service';
 
-interface MusicPageContent {
-  bannerImage: Entry<Asset>;
+export interface MusicPageContent {
+  bannerImage: any;
   bannerImageOverlayText: string;
 }
 
@@ -16,7 +16,7 @@ export class MusicPageComponent {
 
   content: MusicPageContent | undefined;
 
-  constructor(contentfulService: ContentfulService) { 
+  constructor(contentfulService: ContentfulService) {
 
     contentfulService.getContent<MusicPageContent>(ContentTypeIds.SongsPageContent).then(
       c => this.content = c[0].fields
