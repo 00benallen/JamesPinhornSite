@@ -29,6 +29,11 @@ export class MusicViewerComponent implements OnInit, AfterViewChecked {
     this.contentfulMusicService.getVolumes()
     .then(v => {
       this.allVolumes = v.filter(vi => vi.category === this.category).sort(this.compareVolumes);
+
+      if (this.category === 'original song') {
+        this.allVolumes.reverse(); // show latest volumes first
+      }
+
       if (this.allVolumes) {
         this.volumes = [];
         this.volumes.push(this.allVolumes[this.volumeIndex++]);
