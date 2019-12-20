@@ -1,22 +1,46 @@
 import { Component, OnInit } from '@angular/core';
-import { UpdatesService, Update } from 'src/app/updates/updates.service';
-import { Observable } from 'rxjs';
+import { ContentfulService, ContentTypeIds } from 'src/app/contentful.service';
+import { Entry, Asset, ContentfulCollection, EntryCollection } from 'contentful';
+
+interface HomePageContent {
+  bannerImage: Entry<Asset>;
+  bannerImageOverlayText: string;
+  navigationSectionTitle: string;
+  updatesSectionTitle: string;
+}
+
+interface Update {
+  title: string;
+  body: string;
+  link: string;
+  linkDescription: string;
+}
 
 @Component({
   selector: 'app-home-page',
   templateUrl: './home-page.component.html',
   styleUrls: ['./home-page.component.scss']
 })
-export class HomePageComponent implements OnInit {
+export class HomePageComponent {
 
-  updates: Observable<Update[]> | undefined;
+  content: HomePageContent | undefined;
+  updates: Update[] | undefined;
 
-  constructor(private updatesService: UpdatesService) { }
+  constructor(
+    contentfulService: ContentfulService) {
 
-  ngOnInit() {
+    contentfulService.getContent<HomePageContent>(ContentTypeIds.HomePageContent).then(
+      c => {
+        this.content = c[0].fields;
+        console.dir(this.content);
+      }
+    );
 
-    this.updates = this.updatesService.getUpdates();
-
+    contentfulService.getContent<Update>(ContentTypeIds.Update).then(
+      c => {
+        this.updates = c.map(e => e.fields);
+      }
+    );
   }
 
 }

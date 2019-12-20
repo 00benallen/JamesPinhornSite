@@ -1,29 +1,21 @@
 <app-card>
     <p class="text">
-        Here you will find the five Christmas Carols my grandfather used to sing with the men in Norman's Cove, 
-        Trinity Bay, Newfoundland many years ago.  To get the notes as accurate as possible, 
-        I consulted my Uncle Cle Newhook on the words in certain verses, as well as my Mom, 
-        Florence Pinhorn who heard the carols sung in her kitchen many times by her father.  
-        I also made use of two separate recordings of my Grandfather, Ernest Newhook singing 
-        these carols, and information from my Great Uncle Hubert Newhook about the history of the 
-        carols. 
+        {{blurbs?.carolsPageIntroText}}
     </p>
 </app-card>
 
 <app-card>
     <div id="carol-interview-container">
-        <p>An Interview with my Uncle Cle Newhook and my Grandfather Ernest Newhook about the Norman's Cove carols, 
-                and a precious recording of my Poppy singing "Blessed Virgin Mild".  At the end of the interview Cle and Poppy sing 
-                "Awake Good People" together.</p>
+        <p>{{blurbs?.carolsPageInterviewDescription}}</p>
         <audio src="assets/traditional-carols/popandcle.mp3" controls></audio>
         <a href="assets/traditional-carols/popandcle.pdf" target="_blank">Transcript</a>
     </div>
 
     <div id="paper-container">
-        <a href="assets/traditional-carols/carol-history.pdf" target="_blank">A Paper about carols by 
+        <a href="assets/traditional-carols/carol-history.pdf" target="_blank">A Paper about the carols by 
             my late Great Uncle Hubert Newhook</a>
     </div>
 </app-card>
 
-<app-music-viewer musicFile="traditional-carols/traditional-carols.json"></app-music-viewer>
+<app-music-viewer category="carol" loadMore="false"></app-music-viewer>
 

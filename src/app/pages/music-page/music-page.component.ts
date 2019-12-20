@@ -1,8 +1,11 @@
-import { Component, OnInit} from '@angular/core';
-import { Update, UpdatesService } from 'src/app/updates/updates.service';
-import { Observable } from 'rxjs';
+import { Component} from '@angular/core';
+import { Entry, Asset } from 'contentful';
+import { ContentfulService, ContentTypeIds } from 'src/app/contentful.service';
 
-const songDataFile = 'original-song-collections/original-songs.json';
+interface MusicPageContent {
+  bannerImage: Entry<Asset>;
+  bannerImageOverlayText: string;
+}
 
 @Component({
   selector: 'app-music-page',
@@ -11,5 +14,13 @@ const songDataFile = 'original-song-collections/original-songs.json';
 })
 export class MusicPageComponent {
 
-  constructor() { }
+  content: MusicPageContent | undefined;
+
+  constructor(contentfulService: ContentfulService) { 
+
+    contentfulService.getContent<MusicPageContent>(ContentTypeIds.SongsPageContent).then(
+      c => this.content = c[0].fields
+    );
+
+  }
 }

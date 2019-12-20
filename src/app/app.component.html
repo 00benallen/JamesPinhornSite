@@ -1,13 +1,13 @@
 <div class="page-body">
-  <div class="top-row-container">
+  <div *ngIf="headerContent" class="top-row-container">
     <img src="assets/icons/corner-icon-3-rect.svg" class="corner-icon">
     <div class="title-container">
-      <h1 class="site-title">James Pinhorn</h1>
-      <span class="site-subtitle">Singer / Songwriter / Conductor</span>
+      <h1 class="site-title">{{headerContent.title}}</h1>
+      <span class="site-subtitle">{{headerContent.subtitle}}</span>
     </div>
     <div class="nav-container">
-      <ng-container *ngFor="let route of routes">
-        <button [attr.selected]="isSelected(route.url)" [routerLink]="route.url">{{route.label}}</button>
+      <ng-container *ngFor="let route of routes; let i = index">
+        <button [attr.selected]="isSelected(route.url)" [routerLink]="route.url">{{headerContent.navigationButtonText[i]}}</button>
       </ng-container>
     </div>
   </div>
@@ -16,22 +16,23 @@
 
   <router-outlet #outlet="outlet"></router-outlet>
 
-  <app-card>
-    <div class="contact-flex-container">
-      <img src="assets/icons/facebook-icon.svg" class="icon">
-      <a href="https://www.facebook.com/newfieboy23/" class="link">My Facebook Page</a>
+  <ng-container *ngIf="footerContent">
+    <app-card>
+      <div class="contact-flex-container">
+        <img src="assets/icons/facebook-icon.svg" class="icon">
+        <a href="{{footerContent.facebookLink}}" class="link">{{footerContent.facebookLinkLabel}}</a>
+    
+        <img src="assets/icons/youtube-icon.svg" class="icon">
+        <a href="{{footerContent.youtubeLink}}" class="link">{{footerContent.youtubeLinkLabel}}</a>
+        <p>
+      </div>
+    </app-card>
   
-      <img src="assets/icons/youtube-icon.svg" class="icon">
-      <a href="https://www.youtube.com/channel/UCnb18UJU4jlD-UJvSRMTf4A/videos" class="link">My Youtube Channel</a>
-      <p>|</p>
-      <a href="https://www.youtube.com/user/acimusica1/videos" class="link">My School's Channel</a>
+    <hr>
+    
+    <div>
+      <p>{{footerContent.copyrightText}}</p>
     </div>
-  </app-card>
-
-  <hr>
-  
-  <div>
-    <p>© JamesPinhorn 2018</p>
-  </div>
+  </ng-container>
 </div>
 

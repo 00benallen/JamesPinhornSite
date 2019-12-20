@@ -1,4 +1,10 @@
 import { Component, OnInit } from '@angular/core';
+import { ContentfulService, ContentTypeIds } from 'src/app/contentful.service';
+
+interface CarolsPageBlurbs {
+  carolsPageIntroText: string;
+  carolsPageInterviewDescription: string;
+}
 
 @Component({
   selector: 'app-carols-page',
@@ -7,7 +13,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CarolsPageComponent implements OnInit {
 
-  constructor() { }
+  blurbs: CarolsPageBlurbs | undefined;
+
+  constructor(contentfulService: ContentfulService) { 
+
+    contentfulService.getContent<CarolsPageBlurbs>(ContentTypeIds.CarolPageBlurbs).then(
+      c => this.blurbs = c[0].fields
+    );
+
+  }
 
   ngOnInit() {
   }

@@ -1,26 +1,33 @@
-<div>
-  <div *ngFor="let collection of musicCollections ; last as isLast" [class.last-collection]="isLast">
+<div *ngIf="!loadingVolumes; else loadingMessage">
+  <div *ngFor="let volume of volumes; last as isLast" [class.last-collection]="isLast">
     <app-card>
       <div class="v-div"></div>
-      <h2>{{collection.name}}</h2>
-      <h4 *ngIf="collection.note">{{collection.note}}</h4>
+      <h2>{{volume.title}}</h2>
+      <h4 *ngIf="volume.note">{{volume.note}}</h4>
       <hr>
-      <div *ngFor="let file of collection.files" class="file-container">
-        <h4>{{file.displayName}}</h4>
-        <p>{{file.note}}</p>
-        <audio src={{file.fileName}} controls></audio>
-        <a *ngIf="notEmpty(file.lyricsFile)" href="{{file.lyricsFile}}" target="_blank">Lyrics File</a>
+      <div *ngFor="let song of volume.songs" class="file-container">
+        <h4>{{song.fields.title}}</h4>
+        <p>{{song.fields.note}}</p>
+        <audio src={{song.fields.fileLocation}} controls></audio>
+        <a *ngIf="notEmpty(song.fields.lyricsFileLocation)" href="{{song.fields.lyricsFileLocation}}" target="_blank">Lyrics File</a>
         <hr>
       </div>
     </app-card>
   </div>
 </div>
 
-<div *ngIf="moreToLoad && loadMore" class="load-area-container">
-  <button (click)="onLoadMore()">Load Next Volume</button>
-  <button (click)="onLoadMore(true)">Load All</button>
-</div>
+<ng-template #loadingMessage>
+  <app-card>
+    <p>Loading music...</p>
+  </app-card>
+</ng-template>
 
-<div *ngIf="!moreToLoad && loadMore" class="load-area-container">
-  <p>That's all of them! Thanks for your interest :)</p>
-</div>
+
+<ng-container *ngIf="loadMore">
+  <div *ngIf="moreToLoad" class="load-area-container">
+    <button (click)="onLoadMore()">Load Next Volume</button>
+    <button (click)="onLoadMore(true)">Load All</button>
+  </div>
+</ng-container>
+
+

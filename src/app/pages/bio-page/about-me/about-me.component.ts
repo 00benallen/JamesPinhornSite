@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { InfoCard } from '../bio-page.component';
+import { Entry } from 'contentful';
 
 @Component({
   selector: 'app-about-me',
@@ -7,9 +9,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AboutMeComponent implements OnInit {
 
+  @Input() infoCards: Entry<InfoCard>[] | undefined;
+
   constructor() { }
 
   ngOnInit() {
+    console.log(this.infoCards);
   }
 
 }

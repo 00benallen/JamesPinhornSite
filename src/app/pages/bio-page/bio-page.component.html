@@ -1,6 +1,10 @@
-<app-overlay-image 
-  imageSrc="assets/images/banf-banner.jpeg" 
-  imageText="Conducting the Agincourt Singers in Banff Alberta"
+<ng-container *ngIf="content | async as content">
+
+  <app-overlay-image
+  [imageSrc]="content.bannerImage.fields.file.url" 
+  [imageText]="content.bannerImageOverlayText"
   size="medium"></app-overlay-image>
-<app-about-me></app-about-me>
-    
+
+  <app-about-me [infoCards]="content.infoCards"></app-about-me>
+
+</ng-container>

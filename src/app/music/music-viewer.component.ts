@@ -1,5 +1,5 @@
-import { Component, OnInit, AfterViewChecked, Input} from '@angular/core';
-import { MusicService, Collection } from './music-service';
+import { Component, AfterViewChecked, Input, OnInit} from '@angular/core';
+import { ContentfulMusicService, Volume } from './contentful-music.service';
 
 @Component({
   selector: 'app-music-viewer',
@@ -8,39 +8,45 @@ import { MusicService, Collection } from './music-service';
 })
 export class MusicViewerComponent implements OnInit, AfterViewChecked {
 
-  @Input() public musicFile: string | undefined;
   @Input() public autoScroll = false;
   @Input() public loadMore = false;
+  @Input() private category: 'original song' | 'carol' | undefined;
 
-  public musicCollections: Collection[] | undefined = undefined;
+  public volumes: Volume[] | undefined;
+  private allVolumes: Volume[] | undefined;
+  public loadingVolumes = true;
+  public volumeIndex = 0;
   public moreToLoad = false;
   public scrollToBottom = false;
 
-  private loaded = 0;
-
-  constructor(private musicService: MusicService) { }
-
-  ngOnInit() {
-
-    this.autoScroll = this.autoScroll !== undefined;
-    this.loadMore = this.loadMore !== undefined;
-
-    this.moreToLoad = true;
+  constructor(private contentfulMusicService: ContentfulMusicService) {
 
     this.scrollToBottom = false;
 
-    if (this.musicFile) {
-      const musicCollectionsObs = this.musicService.getMusicFileData(this.musicFile, 0);
+  }
 
-      // We loaded one collection, assume there's more to load
-      musicCollectionsObs.subscribe((collections: Collection[]) => {
+  ngOnInit(): void {
+    this.contentfulMusicService.getVolumes()
+    .then(v => {
+      this.allVolumes = v.filter(vi => vi.category === this.category).sort(this.compareVolumes);
+      if (this.allVolumes) {
+        this.volumes = [];
+        this.volumes.push(this.allVolumes[this.volumeIndex++]);
+        this.loadingVolumes = false;
+      } else {
+        console.error('Array of all volumes unexpectedly null on initial load');
+      }
 
-        this.musicCollections = collections;
-
-        this.loaded = 0;
+      if (this.allVolumes.length > 1) {
         this.moreToLoad = true;
-      });
-    }
+      } else {
+        this.moreToLoad = false;
+      }
+    });
+  }
+
+  compareVolumes(a: Volume, b: Volume): number {
+    return a.title.localeCompare(b.title);
   }
 
   // This triggers a lot, basically when elements in view are changed (what we need to accomplish this)
@@ -62,44 +68,26 @@ export class MusicViewerComponent implements OnInit, AfterViewChecked {
 
   public onLoadMore(all?: boolean) {
 
-    if (all && this.musicFile) {
+    if (all && this.allVolumes) {
+      this.volumes = this.allVolumes;
+      this.moreToLoad = false;
+    } else if (this.allVolumes) {
+      const newVolumeToShow = this.allVolumes[this.volumeIndex++];
 
-      console.log('Calling music service');
-      const musicCollectionsObs = this.musicService.getMusicFileData(this.musicFile);
-
-      // We've loaded all files, so change state and remove the load buttons through this boolean
-      musicCollectionsObs.subscribe((collections: Collection[]) => {
-
-        this.musicCollections = collections;
-
-        this.moreToLoad = false;
-        this.scrollToBottom = true;
-        this.loaded = collections.length - 1;
-      });
-
-    } else if (this.musicFile) {
-
-      console.log('Calling music service');
-      const musicCollectionsObs = this.musicService.getMusicFileData(this.musicFile, this.loaded + 1);
-
-      musicCollectionsObs.subscribe((collections: Collection[]) => {
-
-        this.musicCollections = collections;
-        this.scrollToBottom = true;
-        if (this.loaded === collections.length - 1) { // there's no more collections to load
-          this.moreToLoad = false;
-        } else { // we got more collections, so keep loading
-          this.moreToLoad = true;
-          this.loaded = collections.length - 1;
-        }
-
-      });
-
+      if (newVolumeToShow && this.volumes) {
+        this.volumes.push(newVolumeToShow);
+      } else if (!newVolumeToShow) {
+        this.moreToLoad = false; // we've reached the end of the volumes
+      } else {
+        console.error('No volumes to show!');
+      }
+    } else {
+      console.error('Array of all volumes unexpectedly null on load more');
     }
 
   }
 
-  public notEmpty(string: string) {
-    return string !== '';
+  notEmpty(s: string): boolean {
+    return s !== '';
   }
 }

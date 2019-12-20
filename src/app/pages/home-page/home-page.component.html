@@ -1,12 +1,12 @@
 <div class="home-page-container">
   <app-overlay-image 
-  imageSrc="assets/images/conducting-hi-res.jpg" 
-  imageText="Conducting the Bach Children's Chorus at the TCA">
+  [imageSrc]="content?.bannerImage.fields.file.url" 
+  [imageText]="content?.bannerImageOverlayText">
   </app-overlay-image>
 
   <app-card>
     <div class="v-div"></div>
-    <h3>Where things are (you can also use the buttons up top)</h3>
+    <h3>{{content?.navigationSectionTitle}}</h3>
     <hr>
     <li><a routerLink="/bio">Bio</a> for information about me and my career</li>
     <li><a routerLink="/carols">Carols</a> for recordings and sheet music for five traditional Newfoundland Christmas Carols</li>
@@ -15,9 +15,9 @@
 
   <app-card>
     <div class="v-div"></div>
-    <h3>Updates!</h3>
+    <h3>{{content?.updatesSectionTitle}}</h3>
     <hr>
-    <div class="update-container" *ngFor="let update of updates | async">
+    <div class="update-container" *ngFor="let update of updates">
       <h4>{{update.title}}</h4>
       <p>{{update.description}}</p>
       <a target="_blank" href="{{update.link}}" rel="noreferrer">{{update.linkDescription}}</a>
