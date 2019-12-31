@@ -27,17 +27,15 @@ export class ContentfulMusicService {
     this.getVolumes();
   }
 
-  getVolumes(): Promise<Volume[]> {
+  public async getVolumes(): Promise<Volume[]> {
     if (this.volumes) {
       return Promise.resolve(this.volumes);
     } else {
-      return this.contentfulService
-      .getContent<Volume>(ContentTypeIds.Volume)
-      .then(v => {
-        const mappedVolumes = v.map(vi => vi.fields);
-        this.volumes = mappedVolumes;
-        return mappedVolumes;
-      });
+      const v = await this.contentfulService
+        .getContent<Volume>(ContentTypeIds.Volume);
+      const mappedVolumes = v.map(vi => vi.fields);
+      this.volumes = mappedVolumes;
+      return mappedVolumes;
     }
   }
 }

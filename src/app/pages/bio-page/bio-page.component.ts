@@ -18,7 +18,7 @@ interface BioPageContent {
   templateUrl: './bio-page.component.html',
   styleUrls: ['./bio-page.component.scss']
 })
-export class BioPageComponent implements OnInit {
+export class BioPageComponent {
 
   content: Promise<BioPageContent> | undefined;
 
@@ -31,10 +31,6 @@ export class BioPageComponent implements OnInit {
       }
     );
 
-  }
-
-  ngOnInit() {
-    
   }
 
 }

@@ -25,8 +25,8 @@
 
 <ng-container *ngIf="loadMore">
   <div *ngIf="moreToLoad" class="load-area-container">
-    <button (click)="onLoadMore()">Load Next Volume</button>
-    <button (click)="onLoadMore(true)">Load All</button>
+    <button data-testid="load-more" (click)="onLoadMore()">Load Next Volume</button>
+    <button data-testid="load-all" (click)="onLoadMore(true)">Load All</button>
   </div>
 </ng-container>
 

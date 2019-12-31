@@ -10,7 +10,7 @@ export class MusicViewerComponent implements OnInit, AfterViewChecked {
 
   @Input() public autoScroll = false;
   @Input() public loadMore = false;
-  @Input() private category: 'original song' | 'carol' | undefined;
+  @Input() public category: 'original song' | 'carol' | undefined;
 
   public volumes: Volume[] | undefined;
   private allVolumes: Volume[] | undefined;
@@ -31,7 +31,7 @@ export class MusicViewerComponent implements OnInit, AfterViewChecked {
       this.allVolumes = v.filter(vi => vi.category === this.category).sort(this.compareVolumes);
 
       if (this.category === 'original song') {
-        this.allVolumes.reverse(); // show latest volumes first
+        this.allVolumes = this.allVolumes.reverse(); // show latest volumes first
       }
 
       if (this.allVolumes) {

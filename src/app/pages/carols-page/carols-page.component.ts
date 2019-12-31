@@ -11,19 +11,15 @@ interface CarolsPageBlurbs {
   templateUrl: './carols-page.component.html',
   styleUrls: ['./carols-page.component.scss']
 })
-export class CarolsPageComponent implements OnInit {
+export class CarolsPageComponent {
 
   blurbs: CarolsPageBlurbs | undefined;
 
-  constructor(contentfulService: ContentfulService) { 
+  constructor(contentfulService: ContentfulService) {
 
     contentfulService.getContent<CarolsPageBlurbs>(ContentTypeIds.CarolPageBlurbs).then(
       c => this.blurbs = c[0].fields
     );
 
   }
-
-  ngOnInit() {
-  }
-
 }
