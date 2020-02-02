@@ -8,8 +8,9 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "deploy": "npm run build -- --prod && ./rust-deploy --src ./dist/JamesPinhornSite",
-    "deploy-with-assets": "npm run build -- --prod && npm run deploy -- -a"
+    "upload": "./rust-deploy --src ./dist/JamesPinhornSite",
+    "deploy-with-assets": "npm run build -- --prod && npm run upload -- -a",
+    "deploy-no-assets": "npm run build -- --prod && npm run upload"
   },
   "private": true,
   "dependencies": {

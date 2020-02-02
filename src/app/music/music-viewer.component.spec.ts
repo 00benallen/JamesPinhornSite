@@ -1,4 +1,4 @@
-import { async, ComponentFixture, TestBed, flushMicrotasks, fakeAsync, flush, tick } from '@angular/core/testing';
+import { async, ComponentFixture, TestBed, flushMicrotasks, fakeAsync } from '@angular/core/testing';
 
 import { MusicViewerComponent } from './music-viewer.component';
 import { Component } from '@angular/core';
@@ -7,6 +7,7 @@ import { Sys, Entry } from 'contentful';
 import { By } from '@angular/platform-browser';
 
 @Component({ selector: 'app-card', template: '<ng-content></ng-content>' })
+// tslint:disable-next-line: component-class-suffix
 class CardComponentStub {}
 
 describe('MusicViewerComponent', () => {

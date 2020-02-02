@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Router, NavigationEnd, Event } from '@angular/router';
-import { ContentfulService, errorContent, ContentTypeIds } from './contentful.service';
+import { ContentfulService, ContentTypeIds } from './contentful.service';
 
 interface HeaderContent {
   title: string;

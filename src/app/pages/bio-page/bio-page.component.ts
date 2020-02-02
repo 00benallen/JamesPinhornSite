@@ -1,4 +1,4 @@
-import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
+import { Component } from '@angular/core';
 import { ContentfulService, ContentTypeIds } from 'src/app/contentful.service';
 import { Entry, Asset } from 'contentful';
 
@@ -22,11 +22,10 @@ export class BioPageComponent {
 
   content: Promise<BioPageContent> | undefined;
 
-  constructor(contentfulService: ContentfulService, changeDet: ChangeDetectorRef) {
+  constructor(contentfulService: ContentfulService) {
 
     this.content = contentfulService.getContent<BioPageContent>(ContentTypeIds.BioPageContent).then(
       c => {
-        console.log(c[0].fields);
         return c[0].fields;
       }
     );

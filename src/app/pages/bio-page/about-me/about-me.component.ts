@@ -13,8 +13,6 @@ export class AboutMeComponent implements OnInit {
 
   constructor() { }
 
-  ngOnInit() {
-    console.log(this.infoCards);
-  }
+  ngOnInit() {}
 
 }

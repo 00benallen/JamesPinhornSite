@@ -1,6 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { ContentfulService, ContentTypeIds } from 'src/app/contentful.service';
-import { Entry, Asset, ContentfulCollection, EntryCollection } from 'contentful';
 
 export interface HomePageContent {
   bannerImage: any;
@@ -32,7 +31,6 @@ export class HomePageComponent {
     contentfulService.getContent<HomePageContent>(ContentTypeIds.HomePageContent).then(
       c => {
         this.content = c[0].fields;
-        console.dir(this.content);
       }
     );
 

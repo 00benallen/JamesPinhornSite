@@ -1,4 +1,4 @@
-import { TestBed, tick, fakeAsync, flushMicrotasks, flush } from '@angular/core/testing';
+import { TestBed, fakeAsync, flushMicrotasks } from '@angular/core/testing';
 
 import { ContentfulMusicService, Volume } from './contentful-music.service';
 import { ContentfulService } from '../contentful.service';

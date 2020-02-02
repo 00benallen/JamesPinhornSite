@@ -1,5 +1,4 @@
 import { Component} from '@angular/core';
-import { Entry, Asset } from 'contentful';
 import { ContentfulService, ContentTypeIds } from 'src/app/contentful.service';
 
 export interface MusicPageContent {
