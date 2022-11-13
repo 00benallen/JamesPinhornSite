@@ -35,6 +35,6 @@ jobs:
         localDir: dist/JamesPinhornSite
         # Remote directory
         remoteDir: public_html
-        options: --delete
+        options: "--delete"
     
     
