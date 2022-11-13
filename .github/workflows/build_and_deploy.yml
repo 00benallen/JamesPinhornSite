@@ -32,7 +32,7 @@ jobs:
         # FTP password
         password: ${{ secrets.FTP_PASS }}
         # Local directory
-        localDir: dist
+        localDir: dist/JamesPinhornSite
         # Remote directory
         remoteDir: public_html
     
