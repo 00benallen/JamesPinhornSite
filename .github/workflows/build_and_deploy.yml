@@ -22,11 +22,11 @@ jobs:
       uses: sebastianpopp/ftp-action@v2.0.0
       with:
         # FTP host
-        host: ${{ secrets.ftp_host }}
+        host: ${{ secrets.FTP_HOST }}
         # FTP user
-        user: ${{ secrets.ftp_user }}
+        user: ${{ secrets.FTP_USER }}
         # FTP password
-        password: ${{ secrets.ftp_pass }}
+        password: ${{ secrets.FTP_PASS }}
         # Local directory
         localDir: dist
         # Remote directory
