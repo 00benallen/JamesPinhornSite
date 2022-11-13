@@ -30,6 +30,6 @@ jobs:
         # Local directory
         localDir: dist
         # Remote directory
-        remoteDir: /public_html
+        remoteDir: public_html
     
     
